@@ -22,7 +22,14 @@
             {% for question in question_list %}
             <tr>
                 <td>{{ question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1 }}</td>
-                <td><a href="{% url 'pybo:detail' question.id %}">{{ question.subject }}</a></td>
+                <td><a href="{% url 'pybo:detail' question.id %}">
+                    {{ question.subject }}
+                {% if question.answer_set.count > 0 %}
+                <span class="badge badge-dark">{{ question.answer_set.count}}</span>
+                <span class="badge badge-danger">New</span>
+                {% endif %}
+
+                </a></td>
                 <td>{{ question.create_date }}</td>
             </tr>
             {% endfor %}

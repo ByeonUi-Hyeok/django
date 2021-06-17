@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pybo.apps.PyboConfig'
+    'pybo.apps.PyboConfig',
+    'common.apps.CommonConfig'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
                     BASE_DIR / 'static',
                     ]
+
+#로그인 성공시
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
